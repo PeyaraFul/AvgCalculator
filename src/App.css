@@ -1,0 +1,54 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+      background: #757575;
+      }
+  .table {
+    position:absolute;
+    top: 60%;
+  }
+
+  .row {
+    
+    display: flex;
+    width: 100%; 
+    margin: 5px 0;
+    padding:2px;
+    font-size: 30px;
+  }
+
+  .row1 {
+    justify-content: flex-start; /* বামে থাকবে */
+  }
+
+  .row2 {
+    
+    justify-content: flex-end;   /* ডানে থাকবে */
+  }
+
+  .row3 {
+    justify-content: flex-end;   /* ডানে থাকবে */
+  }
+
+  .cell {
+    background: #9e9e9e ;
+    width: 20%;
+    height: 50px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 40px; 
+    color:black ;
+    font-size: 22px;
+  }
+ .display {
+   position:relative ;
+   }
+ span {
+   font-size:10px;
+   position:absolute;
+   }

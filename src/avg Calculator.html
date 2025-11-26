@@ -1,0 +1,132 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+<title>f Cal </title>
+
+<!-- Start your code here -->
+ 
+  <style>
+    
+    body {
+      background: #757575;
+      }
+  .table {
+    position:absolute;
+    top: 60%;
+  }
+
+  .row {
+    
+    display: flex;
+    width: 100%; 
+    margin: 5px 0;
+    padding:2px;
+    font-size: 30px;
+  }
+
+  .row1 {
+    justify-content: flex-start; /* বামে থাকবে */
+  }
+
+  .row2 {
+    
+    justify-content: flex-end;   /* ডানে থাকবে */
+  }
+
+  .row3 {
+    justify-content: flex-end;   /* ডানে থাকবে */
+  }
+
+  .cell {
+    background: #9e9e9e ;
+    width: 20%;
+    height: 50px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 40px; 
+    font-size: 22px;
+  }
+ .display {
+   position:relative ;
+   }
+ span {
+   font-size:10px;
+   position:absolute;
+   }
+    
+</style>
+  
+  
+  <script>
+  function avg() {
+  let Number1 = Number(document.getElementById("nmbr1").value);
+  let Number2 = Number(document.getElementById("nmbr2").value);
+  let Number3 = Number(document.getElementById("nmbr3").value);
+  let Number4 = Number(document.getElementById("nmbr4").value);
+  let Number5 = Number(document.getElementById("nmbr5").value);
+  
+  let numbers = [Number1, Number2, Number3, Number4, Number5];
+
+  let sum = numbers.reduce((a, b) => a + b, 0);
+  let Average = sum / numbers.length;
+
+  document.getElementById("rslt").innerText = Average.toFixed(2);
+
+  let Gpy = Average / 6;
+  document.getElementById("gpy").innerText = Gpy.toFixed(2);
+
+  // Standard Deviation হিসাব
+  let squareDiffs = numbers.map(n => Math.pow(n - Average, 2));
+  let variance = squareDiffs.reduce((a, b) => a + b, 0) / numbers.length;
+  let stdDev = Math.sqrt(variance);
+
+  // CV% হিসাব
+  let cv = (stdDev / Average) * 100;
+
+  document.getElementById("cv").innerText = cv.toFixed(2) + "%";
+}
+    
+  function allreset() {
+  document.getElementById("nmbr1").value = '';
+  document.getElementById("nmbr2").value = '';
+  document.getElementById("nmbr3").value = '';
+  document.getElementById("nmbr4").value = '';
+  document.getElementById("nmbr5").value = '';
+  document.getElementById("rslt").innerText = '';
+}  
+    
+    
+  </script>
+  </head>
+ 
+<body>
+  
+  <div class="table">
+  
+  
+  
+  <div class="row row1">
+    <input type="number" class="cell" id="nmbr1">
+    <input type="number" class="cell" id="nmbr2">
+    <input type="number" class="cell" id="nmbr3">
+    <input type="number" class="cell" id="nmbr4">
+    <input type="number" class="cell" id="nmbr5">
+  </div>
+  
+  <div class="row row2">
+    <div type="number" class="cell display" id="rslt"> <span> Avg </span> </div>
+    <div type="number" class="cell display" id="gpy"> <span> GPY </span> </div>
+    <div type="number" class="cell display" id="cv"> <span> CV% </span></div>
+  </div>
+  
+  <div class="row row3">
+    <button class="cell" onclick="allreset()"> Reset </button>
+    <button class="cell" id="result" onclick="avg()"> = </button>
+  </div>
+  
+<!-- End your code here -->
+    
+    
+    </div>
+</body>
+</html>
